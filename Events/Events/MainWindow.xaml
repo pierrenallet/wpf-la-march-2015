@@ -4,12 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Events"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <StackPanel>
-        <Button Content="A" Click="Button_Click"/>
-        <Button Content="B" Click="Button_Click"/>
-        <Button Content="C" Click="Button_Click"/>
-        <Button Content="D" Click="Button_Click"/>
+    <StackPanel Button.Click="Button_Click" MouseDown="StackPanel_MouseDown" PreviewMouseDown="StackPanel_PreviewMouseDown" Background="{x:Null}">
+        <Button Content="{x:Static sys:DateTime.Now}"/>
+        <Button Content="B"/>
+        <Button Content="C"/>
+        <Button Content="D"/>
     </StackPanel>
 </Window>

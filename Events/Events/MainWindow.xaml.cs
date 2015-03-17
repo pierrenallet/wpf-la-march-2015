@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -27,8 +28,19 @@ namespace Events
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Button b = (Button)sender;
+            
+            Button b = (Button)e.Source;
             b.Content = "Click Me!";
+        }
+
+        private void StackPanel_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
+
+        private void StackPanel_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }
