@@ -1,0 +1,19 @@
+﻿<Window x:Class="SplitterDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <Button Content="Left"></Button>
+        <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Width="30">
+            <GridSplitter.Background>
+                <ImageBrush ImageSource="http://t2.gstatic.com/images?q=tbn:ANd9GcRFk10IyHUnLj5ZSgi2Cd1oJ17BTFbSr7NJdvpIsiQ4dxzw_TP14Q"></ImageBrush></GridSplitter.Background>
+        </GridSplitter>
+        <Button Content="Right" Grid.Column="2"></Button>
+    </Grid>
+</Window>

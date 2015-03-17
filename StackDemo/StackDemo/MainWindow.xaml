@@ -1,0 +1,10 @@
+﻿<Window x:Class="StackDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Background="Yellow">
+        <Button Content="My First Button" Margin="10,10,0,10" Padding="10"/>
+        <Button Content="My Second Button" Margin="10,10,0,10" Padding="10"/>
+        <Button Content="My Third Button" Margin="10,10,0,10" Padding="10"/>
+    </StackPanel>
+</Window>

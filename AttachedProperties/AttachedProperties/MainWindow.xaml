@@ -1,0 +1,12 @@
+﻿<Window x:Class="AttachedProperties.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel>
+        <Button Content="Attached Properties" Grid.Row="0">
+            <ToolTipService.ToolTip>
+                <Rectangle Fill="Green" Width="100" Height="20"/>
+            </ToolTipService.ToolTip>
+        </Button>
+    </StackPanel>
+</Window>

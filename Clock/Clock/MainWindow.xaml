@@ -1,0 +1,25 @@
+﻿<Window x:Class="Clock.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:r="clr-namespace:Clock"
+        mc:Ignorable="d" MouseDoubleClick="Window_MouseDoubleClick"
+        Title="MainWindow" Height="350" Width="525" WindowStyle="None">
+    <Grid>
+        <r:RadialPanel TextElement.FontSize="22" TextElement.FontWeight="Bold">
+            <TextBlock r:RadialPanel.Angle="0">XII</TextBlock>
+            <TextBlock r:RadialPanel.Angle="1">I</TextBlock>
+            <TextBlock r:RadialPanel.Angle="2">II</TextBlock>
+            <TextBlock r:RadialPanel.Angle="3">III</TextBlock>
+            <TextBlock r:RadialPanel.Angle="4">IV</TextBlock>
+            <TextBlock r:RadialPanel.Angle="5">V</TextBlock>
+            <TextBlock r:RadialPanel.Angle="6">VI</TextBlock>
+            <TextBlock r:RadialPanel.Angle="7">VII</TextBlock>
+            <TextBlock r:RadialPanel.Angle="8">VIII</TextBlock>
+            <TextBlock r:RadialPanel.Angle="9">IX</TextBlock>
+            <TextBlock r:RadialPanel.Angle="10">X</TextBlock>
+            <TextBlock r:RadialPanel.Angle="11">XI</TextBlock>
+        </r:RadialPanel>
+    </Grid>
+</Window>

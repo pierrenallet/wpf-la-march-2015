@@ -1,0 +1,13 @@
+﻿<Window x:Class="XAMLApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525"
+        Background="Aquamarine">
+    <Button Click="Button_Click">
+        <Ellipse Width="496" Height="314">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRRdCCS9D18x7V4MtLpeXAA579JwHZpoEm_JcJ33jTO9GFzwib9Q" Viewport="0 0 0.5 0.5" TileMode="FlipY"/>
+            </Ellipse.Fill>
+        </Ellipse>
+    </Button>
+</Window>
