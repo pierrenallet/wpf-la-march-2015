@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22310.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBinding_1", "DataBinding_1\DataBinding_1.csproj", "{EB704A59-5339-4B8F-BA38-3F10E86548CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB704A59-5339-4B8F-BA38-3F10E86548CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB704A59-5339-4B8F-BA38-3F10E86548CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB704A59-5339-4B8F-BA38-3F10E86548CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB704A59-5339-4B8F-BA38-3F10E86548CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

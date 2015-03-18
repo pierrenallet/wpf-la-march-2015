@@ -1,0 +1,44 @@
+﻿<Application x:Class="DatabindingColors.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:DatabindingColors"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <!--<DataTemplate DataType="{x:Type Brush}" >
+            <StackPanel Orientation="Horizontal">
+                <Ellipse Width="50" Height="50" Fill="{Binding}"/>
+                <TextBlock Text="{Binding}"/>
+            </StackPanel>
+        </DataTemplate>-->
+
+        <DataTemplate DataType="{x:Type local:NameBrush}">
+            <StackPanel Orientation="Horizontal">
+                <Ellipse Width="50" Height="50" Fill="{Binding Brush}"/>
+                <TextBlock Text="{Binding Name}"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type local:BrushFinder}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBox Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGrid Grid.Row="1" ItemsSource="{Binding Brushes}" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" 
+                                            Visibility="{Binding NameVisibility}"/>
+                        <DataGridTemplateColumn Header="Color">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Ellipse Width="50" Height="50" Fill="{Binding Brush}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </DataTemplate>
+    </Application.Resources>
+</Application>
