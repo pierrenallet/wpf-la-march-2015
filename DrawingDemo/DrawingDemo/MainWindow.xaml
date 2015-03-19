@@ -1,0 +1,40 @@
+﻿<Window x:Class="DrawingDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DrawingDemo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <Path Data="{Binding Data}" Fill="{Binding Fill}" 
+              Stroke="{Binding Stroke}"
+              StrokeThickness="{Binding StrokeThickness}" 
+              StrokeDashArray="{Binding StrokeDashArray}"/>
+        
+        <StackPanel Grid.Column="1">
+            <StackPanel.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2"/>
+            </StackPanel.LayoutTransform>
+            
+            <TextBlock>Fill</TextBlock>
+            <TextBox Text="{Binding Fill, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBlock>Data</TextBlock>
+            <TextBox Text="{Binding Data, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBlock>Stroke</TextBlock>
+            <TextBox Text="{Binding Stroke, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBlock>Stroke Thickness</TextBlock>
+            <TextBox Text="{Binding StrokeThickness, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBlock>Stroke Dash Array</TextBlock>
+            <TextBox Text="{Binding StrokeDashArray, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+
+            
+        </StackPanel>
+        
+    </Grid>
+</Window>
