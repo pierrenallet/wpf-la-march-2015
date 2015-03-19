@@ -1,0 +1,55 @@
+﻿<Application x:Class="MVVM_Demo_01.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:MVVM_Demo_01"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <DataTemplate DataType="{x:Type local:LoginViewModel}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBox Background="Red" Name="UserName" Text="{Binding UserName}" ></TextBox>
+                <TextBox Background="Red" Name="Password" Grid.Row="1" Text="{Binding Password}"></TextBox>
+                <Button 
+                    Command="{Binding Login}"
+                    Name="LoginBtn" Content="Please Login" Grid.Row="2"></Button>
+                <TextBlock 
+                    Grid.Row="3" Name="ErrorMessage" Text="{Binding ErrorMsg}"></TextBlock>
+            </Grid>
+            <DataTemplate.Triggers>
+                <DataTrigger 
+                    Binding="{Binding ErrorMsg}" Value="{x:Null}">
+                    <Setter TargetName="ErrorMessage" Property="Visibility" Value="Collapsed"></Setter>
+                    <Setter TargetName="UserName" Property="Background" Value="Transparent"></Setter>
+                    <Setter TargetName="Password" Property="Background" Value="Transparent"></Setter>
+
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+        <DataTemplate x:Key="NotLoggedIn" DataType="{x:Type local:MainViewModel}">
+            <ContentControl Content="{Binding LoginVM}"></ContentControl>
+        </DataTemplate>
+         <DataTemplate x:Key="LoggedIn" DataType="{x:Type local:MainViewModel}">
+            <Grid>
+                <TextBlock Text="{Binding LoginVM.UserName}" FontSize="40"></TextBlock>
+            </Grid>
+        </DataTemplate>
+         <DataTemplate DataType="{x:Type local:MainViewModel}">
+            <ContentControl Content="{Binding}" Name="Cat"></ContentControl>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding LoginVM.IsLoggedIn}" Value="False">
+                    <Setter TargetName="Cat" Property="ContentTemplate" 
+                            Value="{StaticResource NotLoggedIn}"></Setter>
+                </DataTrigger>
+                 <DataTrigger Binding="{Binding LoginVM.IsLoggedIn}" Value="True">
+                    <Setter TargetName="Cat" Property="ContentTemplate" 
+                            Value="{StaticResource LoggedIn}"></Setter>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+    </Application.Resources>
+</Application>
