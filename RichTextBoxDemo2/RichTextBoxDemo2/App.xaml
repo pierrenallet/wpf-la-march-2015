@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:RichTextBoxDemo2"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <SolidColorBrush Color="Orange" x:Key="selectedBorder"/>
     </Application.Resources>
 </Application>

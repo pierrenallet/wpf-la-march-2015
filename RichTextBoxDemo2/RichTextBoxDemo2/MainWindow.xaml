@@ -11,24 +11,57 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <ComboBox ItemsSource="{Binding}">
-            <ComboBox.ItemTemplate>
-                <DataTemplate DataType="{x:Type Brush}">
-                    <Rectangle Width="18" Height="{Binding RelativeSource={RelativeSource Self}, Path=Width}"
-                               Fill="{Binding}"></Rectangle>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-            <ComboBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <UniformGrid Columns="10"/>
-                </ItemsPanelTemplate>
-            </ComboBox.ItemsPanel>
-            <ComboBox.ItemContainerStyle>
-                <Style TargetType="ComboBoxItem">
-                    <Setter Property="HorizontalAlignment" Value="Center"/>
-                </Style>
-            </ComboBox.ItemContainerStyle>
-        </ComboBox>
-        <RichTextBox Grid.Row="1"></RichTextBox>
+       
+            <ComboBox ItemsSource="{Binding}" FocusManager.IsFocusScope="True">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate DataType="{x:Type Brush}">
+                        <Button Command="{x:Static local:TextBoxCommands.SetForeground}"
+                            CommandParameter="{Binding}"
+                            Background="{Binding}" Height="18" Width="18"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+                <ComboBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="10"/>
+                    </ItemsPanelTemplate>
+                </ComboBox.ItemsPanel>
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ComboBoxItem">
+                                    <Border Name="cbBorder" BorderThickness="1" Margin="2"
+                                        RenderTransformOrigin="0.5 0.5">
+                                        <ContentPresenter/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="cbBorder" Property="BorderBrush" Value="{StaticResource selectedBorder}"/>
+                                            <Setter TargetName="cbBorder" Property="RenderTransform">
+                                                <Setter.Value>
+                                                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Panel.ZIndex" Value="1"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+            </ComboBox>
+        
+        <RichTextBox Grid.Row="1">
+            <RichTextBox.CommandBindings>
+                <CommandBinding Command="{x:Static local:TextBoxCommands.SetForeground}" 
+                                Executed="CommandBinding_Executed"/>
+            </RichTextBox.CommandBindings>
+        </RichTextBox>
     </Grid>
 </Window>

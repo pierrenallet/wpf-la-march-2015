@@ -25,5 +25,11 @@ namespace RichTextBoxDemo2
             InitializeComponent();
             DataContext = typeof(Brushes).GetProperties().Select(p => p.GetValue(null));
         }
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            RichTextBox rtb = (RichTextBox) e.Source;
+            rtb.Selection.ApplyPropertyValue(RichTextBox.ForegroundProperty, e.Parameter);
+        }
     }
 }
