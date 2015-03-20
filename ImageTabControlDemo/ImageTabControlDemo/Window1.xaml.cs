@@ -31,7 +31,9 @@ namespace ImageTabControlDemo
     public partial class Window1 : Window
     {
         public Window1()
+
         {
+            TabControl tc;
             InitializeComponent();
             DataContext = new List<Flower>
             {
