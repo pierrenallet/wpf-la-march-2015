@@ -1,0 +1,57 @@
+﻿<Window x:Class="ImageTabControlDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImageTabControlDemo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <TabControl>
+            <TabControl.Resources>
+                <Style TargetType="Image">
+                    <Setter Property="Width" Value="50"></Setter>
+                    <Setter Property="Height" Value="50"></Setter>
+                </Style>
+            </TabControl.Resources>
+            <TabItem >
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Orange</TextBlock>
+                        <Image Source="orange.jpg"></Image>
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Red</TextBlock>
+                        <Image Source="red.jpg"></Image>
+                    </StackPanel>
+                </TabItem.Header>
+
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>blue</TextBlock>
+                        <Image Source="blue.jpg"></Image>
+                    </StackPanel>
+                </TabItem.Header>
+
+            </TabItem>
+            <TabItem Header="Something"></TabItem>
+            <TabItem Header="Something"></TabItem>
+            <TabItem Header="Something"></TabItem>
+            <TabItem Header="Something"></TabItem>
+            <TabItem Header="Something"></TabItem>
+            <TabItem Header="Something"></TabItem>
+            <TabItem Header="Something"></TabItem>
+            <TabItem Header="Something"></TabItem>
+            <TabItem Header="Something"></TabItem>
+            <TabItem Header="Something"></TabItem>
+            <TabItem Header="Something"></TabItem>
+            <TabItem Header="Something"></TabItem>
+        </TabControl>
+    </Grid>
+</Window>

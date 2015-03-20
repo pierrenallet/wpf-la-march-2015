@@ -7,33 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <RichTextBox Name="rtb" local:RichTextBoxExtensions.CaretPositionEnabled="true">
+        <RichTextBox Name="rtb" >
             <local:IntellisenseService.Manager>
-                <local:IntellisenseManager x:Name="manager"></local:IntellisenseManager>
+                <local:IntellisenseManager ></local:IntellisenseManager>
             </local:IntellisenseService.Manager>
-            <RichTextBox.CommandBindings>
-                <CommandBinding
-                    Command="{x:Static local:RichTextBoxExtensions.ReplaceSelectedText}" Executed="ReplaceSelectedText"></CommandBinding>
-            </RichTextBox.CommandBindings>
         </RichTextBox>
-        <Popup FocusManager.IsFocusScope="true" Placement="RelativePoint" PlacementTarget="{Binding ElementName=rtb}" IsOpen="{Binding ElementName=manager, Path=IsOpen, Mode=OneWay}" 
-               PlacementRectangle="{Binding ElementName=rtb, Path=(local:RichTextBoxExtensions.CaretPosition)}">
-                    <ListBox VerticalAlignment="Bottom" ItemsSource="{Binding ElementName=manager, Path=Suggestions}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Button Content="{Binding}" CommandParameter="{Binding}" 
-                                Command="{x:Static local:RichTextBoxExtensions.ReplaceSelectedText}">
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <ContentPresenter/>
-                                </ControlTemplate>
-                            </Button.Template>
-                        </Button>
-                        
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-                    </ListBox>
 
-        </Popup>
     </Grid>
 </Window>

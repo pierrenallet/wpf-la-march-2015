@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Data;
+using System.Windows.Input;
 
 namespace Intellisense
 {
@@ -29,12 +32,22 @@ namespace Intellisense
             {
                 IntellisenseManager manager = (IntellisenseManager)e.NewValue;
                 RichTextBox rtb = (RichTextBox)d;
+                RichTextBoxExtensions.SetCaretPositionEnabled(rtb, true);
                 rtb.SelectionChanged += (object sender, RoutedEventArgs ee)
                 => {
                     var text = rtb.Selection.Text;
                     //TODO: work with spaces
                     manager.CurrentWord = text;
                 };
+                Popup popup = new Popup();
+                popup.Placement = PlacementMode.RelativePoint;
+                popup.PlacementTarget = rtb;
+                popup.Child = new ContentPresenter { Content = manager };
+                popup.IsOpen = true;
+                popup.SetBinding(Popup.PlacementRectangleProperty, new Binding() { Source = rtb, Path = new PropertyPath(RichTextBoxExtensions.CaretPositionProperty)});
+                FocusManager.SetIsFocusScope(popup, true);
+
+
             }
         }
 

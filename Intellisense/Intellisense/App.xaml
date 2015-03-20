@@ -4,6 +4,23 @@
              xmlns:local="clr-namespace:Intellisense"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <DataTemplate DataType="{x:Type local:IntellisenseManager}">
+            <ListBox VerticalAlignment="Bottom"
+                     ItemsSource="{Binding Path=Suggestions}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Button Content="{Binding}" CommandParameter="{Binding}" 
+                                Command="{x:Static local:RichTextBoxExtensions.ReplaceSelectedText}">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <ContentPresenter/>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+        </DataTemplate>
     </Application.Resources>
 </Application>

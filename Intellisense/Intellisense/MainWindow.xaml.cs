@@ -13,10 +13,6 @@ namespace Intellisense
             InitializeComponent();
         }
 
-        private void ReplaceSelectedText(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
-        {
-            RichTextBox rtb = (RichTextBox) sender;
-            rtb.Selection.Text = (string)e.Parameter;
-        }
+       
     }
 }

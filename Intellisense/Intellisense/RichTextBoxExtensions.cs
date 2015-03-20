@@ -11,9 +11,25 @@ namespace Intellisense
 {
     static class RichTextBoxExtensions
     {
+        static RichTextBoxExtensions()
+        {
+            var binding = new CommandBinding()
+            {
+                Command = ReplaceSelectedText,
+
+            };
+            binding.Executed += (sender, e)
+            =>
+            {
+                RichTextBox rtb = (RichTextBox)sender;
+                rtb.Selection.Text = (string)e.Parameter;
+            };
+            CommandManager.RegisterClassCommandBinding(typeof(RichTextBox), binding);
+
+        }
 
         public static RoutedCommand ReplaceSelectedText
-        { get; }
+        { get; }    
         = new RoutedCommand("replaceSelectedText", typeof(RichTextBoxExtensions));
 
         public static Rect GetCaretPosition(DependencyObject obj)
