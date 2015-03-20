@@ -30,7 +30,23 @@
                 <Setter.Value>
                     <Style TargetType="ListBoxItem">
                         <Setter Property="Background" Value="Red"/>
+                        <Setter Property="Foreground" Value="White"/>
                         <Setter Property="Margin" Value="10"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListBoxItem">
+                                    <Border Name="border" CornerRadius="4"
+                                            Background="{TemplateBinding Background}">
+                                        <ContentPresenter/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter TargetName="border" Property="Background" Value="Azure"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
                     </Style>
                 </Setter.Value>
             </Setter>
